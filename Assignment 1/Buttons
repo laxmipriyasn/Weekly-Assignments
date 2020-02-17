@@ -1,4 +1,6 @@
 package assignments;
+//Buttons
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -22,9 +24,9 @@ public class Assignment_WebElements {
 		float x = xycord.getX();
 		float y = xycord.getY();
 		System.out.println("Coordinates of x and y are" + " " + x + " " + y);
-		//System.out.println(xycord.getX());
 		WebElement color = driver.findElement(By.xpath("//button[@id='color']"));
-		System.out.println(color.getCssValue("Color"));
+		System.out.println(color.getCssValue("Color")); //color of the text
+		System.out.println(color.getCssValue("background-color")); //bg color of the button
 		WebElement size = driver.findElement(By.xpath("//button[@id='size']"));
 		System.out.println("The Size of the button " +size.getSize().getHeight() +" " +size.getSize().getWidth());
 	}
