@@ -1,0 +1,69 @@
+package leaftaps;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class CreateLead2 {
+
+	public static void main(String[] args) {
+			
+				System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+				ChromeDriver driver = new ChromeDriver();
+				driver.get("http://leaftaps.com/opentaps/control/main");
+				driver.manage().window().maximize();
+				driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+				driver.findElementByXPath("//input[@name='USERNAME']").sendKeys("Demosalesmanager");
+				driver.findElementByXPath("//input[@name='PASSWORD']").sendKeys("crmsfa");
+				driver.findElementByClassName("decorativeSubmit").click();
+				driver.findElementByXPath("//a[contains(text(),'CRM/SFA')]").click();
+				driver.findElementByXPath("//a[contains(text(),'Leads')]").click();
+				driver.findElementByXPath("//a[text()='Create Lead']").click();
+				driver.findElementById("createLeadForm_companyName").sendKeys("Alpha");
+				//WebDriverWait wait=new WebDriverWait(driver, 20);
+				driver.findElementById("createLeadForm_firstName").sendKeys("Laxmi");
+				driver.findElementById("createLeadForm_lastName").sendKeys("Srinivasan");
+				WebElement drop = driver.findElementById("createLeadForm_dataSourceId");
+				Select dd=new Select(drop);
+				dd.selectByIndex(1);
+				WebElement drop1 = driver.findElementById("createLeadForm_marketingCampaignId");
+				Select dd1=new Select(drop1);
+				dd1.selectByValue("CATRQ_AUTOMOBILE");
+				driver.findElementByName("firstNameLocal").sendKeys("Lux");
+				driver.findElementByName("lastNameLocal").sendKeys("Priya");
+				driver.findElementById("createLeadForm_personalTitle").sendKeys("Mrs.");
+				driver.findElementById("createLeadForm_personalTitle").sendKeys("NA");
+				driver.findElementById("createLeadForm_departmentName").sendKeys("Education");
+				driver.findElementById("createLeadForm_annualRevenue").sendKeys("1000000");
+				WebElement drop3 = driver.findElementById("createLeadForm_currencyUomId");
+				Select dd3=new Select(drop3);
+				dd3.selectByVisibleText("INR - Indian Rupee");
+				WebElement drop4 = driver.findElementById("createLeadForm_industryEnumId");
+				Select dd4=new Select(drop4);
+				dd4.selectByValue("IND_SOFTWARE");
+				driver.findElementById("createLeadForm_numberEmployees").sendKeys("15");
+				WebElement drop5 = driver.findElementById("createLeadForm_ownershipEnumId");
+				Select dd5=new Select(drop5);
+				dd5.selectByVisibleText("Sole Proprietorship");
+				driver.findElementById("createLeadForm_sicCode").sendKeys("1234");
+				driver.findElementById("createLeadForm_tickerSymbol").sendKeys("NA");
+				driver.findElementById("createLeadForm_description").sendKeys("My First Automation Script");
+				driver.findElementById("createLeadForm_primaryEmail").sendKeys("laxmipriyasn@gmail.com");
+				driver.findElementById("createLeadForm_primaryPhoneNumber").sendKeys("123450");
+				driver.findElementByXPath("//input[@class='smallSubmit']").click();
+				driver.findElementByXPath("//a[text()='Logout']").click();
+				driver.quit();
+				
+				
+				
+				
+		
+
+		
+
+
+	}
+
+}
